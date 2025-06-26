@@ -2,7 +2,8 @@
 #include "snakewidget.h"
 #include <QtGui>
 
-GamePanel::GamePanel() : QWidget() {
+GamePanel::GamePanel() : QWidget()
+{
     snakeWidget = std::make_unique<SnakeWidget>(this);
     auto layout = std::make_unique<QGridLayout>();
     layout->addWidget(snakeWidget.get(), 0, 0);
@@ -16,9 +17,11 @@ GamePanel::GamePanel() : QWidget() {
     setWindowTitle(tr("Snake"));
 }
 
-void GamePanel::keyPressEvent(QKeyEvent *event) {
+void GamePanel::keyPressEvent(QKeyEvent *event)
+{
     auto key = event->key();
-    switch(key) {
+    switch (key)
+    {
     case Qt::Key_Q:
         exit(EXIT_FAILURE);
         break;
@@ -39,7 +42,8 @@ void GamePanel::keyPressEvent(QKeyEvent *event) {
     }
 }
 
-void GamePanel::update() {
+void GamePanel::update()
+{
     snakeWidget->checkIfEat();
     snakeWidget->generateFood();
     snakeWidget->move();
@@ -47,10 +51,14 @@ void GamePanel::update() {
     snakeWidget->repaint();
 }
 
-void GamePanel::handlePause() {
-    if(timer->isActive()) {
+void GamePanel::handlePause()
+{
+    if (timer->isActive())
+    {
         timer->stop();
-    } else {
+    }
+    else
+    {
         timer->start(INTERVALL);
     }
 }
@@ -58,5 +66,7 @@ void GamePanel::handlePause() {
 void GamePanel::handleSpeed()
 {
     timer->setInterval(timer->intervalAsDuration()
-                       .count() == INTERVALL ? SLOW_INTERVALL : INTERVALL);
+                                   .count() == INTERVALL
+                           ? SLOW_INTERVALL
+                           : INTERVALL);
 }

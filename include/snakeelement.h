@@ -4,7 +4,8 @@
 #include "constants.h"
 #include <QRect>
 
-struct SnakeElement {
+struct SnakeElement
+{
     int x, y;
     SnakeElement(int x, int y) : x(x), y(y) {}
     SnakeElement() : x(0), y(0) {}
