@@ -1,5 +1,4 @@
-#ifndef GAMEPANEL_H
-#define GAMEPANEL_H
+#pragma once
 
 #include "snakewidget.h"
 #include <QWidget>
@@ -25,5 +24,3 @@ private:
   std::unique_ptr<SnakeWidget> snakeWidget;
   std::shared_ptr<QTimer> timer;
 };
-
-#endif // GAMEPANEL_H

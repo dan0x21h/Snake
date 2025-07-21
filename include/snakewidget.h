@@ -1,5 +1,4 @@
-#ifndef SNAKEWIDGET_H
-#define SNAKEWIDGET_H
+#pragma once
 
 #include <QGridLayout>
 #include <QPaintEvent>
@@ -54,5 +53,3 @@ private:
   int animationCounter;
   int MAX_SNAKE_LENGTH;
 };
-
-#endif // SNAKEWIDGET_H

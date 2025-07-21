@@ -1,5 +1,4 @@
-#ifndef CONSTANTS_H
-#define CONSTANTS_H
+#pragma once
 
 #include <QFont>
 #include <QPen>
@@ -27,5 +26,3 @@ static const int _r = Qt::Key_Right;
 static const int _border = Qt::Key_D;
 static const int _cross = Qt::Key_C;
 static const int _death = Qt::Key_N;
-
-#endif // CONSTANTS_H

@@ -1,5 +1,4 @@
-#ifndef SNAKEELEMENT_H
-#define SNAKEELEMENT_H
+#pragma once
 
 #include "constants.h"
 #include <QRect>
@@ -11,5 +10,3 @@ struct SnakeElement
     SnakeElement() : x(0), y(0) {}
     QRect getRect() const { return QRect(x, y, ESIZE, ESIZE); }
 };
-
-#endif // SNAKEELEMENT_H
