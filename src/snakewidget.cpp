@@ -3,18 +3,12 @@
 
 int rand(int border)
 {
-    int num;
-    while (true)
-    {
-        num = QRandomGenerator::global()->generate() % border;
-        if (num % ESIZE == 0)
-            break;
-    }
-    return num;
+    return (QRandomGenerator::global()->generate() % (border / ESIZE)) * ESIZE;
 }
 
-SnakeWidget::SnakeWidget(QWidget *parent) : QWidget(parent), isStarted(false)
+SnakeWidget::SnakeWidget(QWidget *parent) : QWidget(parent), isStarted(false), isGameOver(false)
 {
+    MAX_SNAKE_LENGTH = (WINDOW_SIZE.width() / ESIZE) * (WINDOW_SIZE.height() / ESIZE);
     setFixedSize(WINDOW_SIZE);
     directions[_u] = std::make_pair(0, -ESIZE);
     directions[_d] = std::make_pair(0, ESIZE);
@@ -77,6 +71,12 @@ void SnakeWidget::generateFood()
 {
     if (hasFood)
     {
+        return;
+    }
+
+    if (snake_items.size() >= MAX_SNAKE_LENGTH)
+    {
+        isGameOver = true;
         return;
     }
 

@@ -52,6 +52,7 @@ private:
   bool allowCrossingSnake;
   int score;
   int animationCounter;
+  int MAX_SNAKE_LENGTH;
 };
 
 #endif // SNAKEWIDGET_H
