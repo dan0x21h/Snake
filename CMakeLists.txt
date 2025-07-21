@@ -35,10 +35,34 @@ set(HEADERS
     include/snakewidget.h
 )
 
+set(RESOURCES
+    resources.qrc
+)
+
+if(APPLE)
+    set(ICON_FILE ${CMAKE_CURRENT_SOURCE_DIR}/snake_icon.icns)
+    set_source_files_properties(${ICON_FILE} PROPERTIES
+        MACOSX_PACKAGE_LOCATION "Resources")
+endif()
+
+
 add_executable(${PROJECT_NAME}
     ${SOURCES}
     ${HEADERS}
+    ${RESOURCES}
+    ${ICON_FILE}
 )
+
+if(APPLE)
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        MACOSX_BUNDLE TRUE
+        MACOSX_BUNDLE_ICON_FILE snake_icon.icns
+        MACOSX_BUNDLE_GUI_IDENTIFIER "com.yourname.snake_game"
+        MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
+        MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
+        MACOSX_BUNDLE_DISPLAY_NAME "Snake Game"
+    )
+endif()
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt6::Core
