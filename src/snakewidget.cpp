@@ -217,7 +217,7 @@ void SnakeWidget::paintEvent(QPaintEvent *event)
 
 void SnakeWidget::drawStartScreen(QPainter &painter)
 {
-    QString msg("SNAKE!\nThe famous Snake known from mobiles.\nPress S to start!");
+    QString msg("SNAKE!\nThe famous Snake known from mobiles.\nPress S to start!\n\nPress P to pause");
     painter.setPen(WHITE_PEN);
     painter.setFont(BIG_FONT);
     painter.drawText(QRect(0, 0, WINDOW_SIZE.width(),

@@ -13,10 +13,10 @@ This is a classic Snake game implemented using **Qt (via QML or Widgets)** and *
 | **P**       | Pause / unpause               |
 | **R**       | Reset game state              |
 | **S**       | Start the game                |
-| **F**       | Toggle game speed (slow/fast) |
-| **B**       | Toggle no border collision    |
-| **D**       | Toggle no border placement    |
-| **N**       | Toggle no-death mode          |
+| **1**       | Toggle game speed (slow/fast) |
+| **2**       | Toggle no border collision    |
+| **3**       | Toggle no border placement    |
+| **4**       | Toggle no-death mode          |
 
 > ✅ Movement is allowed only if not reversing direction.
 

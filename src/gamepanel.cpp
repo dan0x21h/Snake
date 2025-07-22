@@ -34,7 +34,7 @@ void GamePanel::keyPressEvent(QKeyEvent *event)
     case Qt::Key_S:
         snakeWidget->start();
         break;
-    case Qt::Key_F:
+    case Qt::Key_1:
         handleSpeed();
         break;
     default:
