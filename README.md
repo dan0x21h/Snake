@@ -6,17 +6,17 @@ This is a classic Snake game implemented using **Qt (via QML or Widgets)** and *
 
 ## 🎮 Controls
 
-| Key         | Action                        |
-| ----------- | ----------------------------- |
-| **↑ ↓ ← →** | Change snake direction        |
-| **Q**       | Quit the game                 |
-| **P**       | Pause / unpause               |
-| **R**       | Reset game state              |
-| **S**       | Start the game                |
-| **1**       | Toggle game speed (slow/fast) |
-| **2**       | Toggle no border collision    |
-| **3**       | Toggle no border placement    |
-| **4**       | Toggle no-death mode          |
+| Key         | Action                               |
+| ----------- | ------------------------------------ |
+| **↑ ↓ ← →** | Change snake direction               |
+| **Q**       | Quit the game                        |
+| **P**       | Pause / unpause                      |
+| **R**       | Reset game state                     |
+| **S**       | Start the game                       |
+| **1**       | Toggle game speed (fast/medium/slow) |
+| **2**       | Toggle no border collision           |
+| **3**       | Toggle no border placement           |
+| **4**       | Toggle no-death mode                 |
 
 > ✅ Movement is allowed only if not reversing direction.
 

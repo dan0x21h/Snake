@@ -2,7 +2,7 @@
 #include "snakewidget.h"
 #include <QtGui>
 
-GamePanel::GamePanel() : QWidget()
+GamePanel::GamePanel() : QWidget(), currentInterval(INTERVALL)
 {
     snakeWidget = std::make_unique<SnakeWidget>(this);
     auto layout = std::make_unique<QGridLayout>();
@@ -11,7 +11,7 @@ GamePanel::GamePanel() : QWidget()
 
     timer = std::make_shared<QTimer>(this);
     connect(timer.get(), SIGNAL(timeout()), this, SLOT(update()));
-    timer->start(INTERVALL);
+    timer->start(currentInterval);
 
     setFixedSize(WINDOW_SIZE);
     setWindowTitle(tr("Snake"));
@@ -35,7 +35,7 @@ void GamePanel::keyPressEvent(QKeyEvent *event)
         snakeWidget->start();
         break;
     case Qt::Key_1:
-        handleSpeed();
+        toggleSpeed();
         break;
     default:
         snakeWidget->setCommand(key);
@@ -59,14 +59,22 @@ void GamePanel::handlePause()
     }
     else
     {
-        timer->start(INTERVALL);
+        timer->start(currentInterval);
     }
 }
 
-void GamePanel::handleSpeed()
+void GamePanel::toggleSpeed()
 {
-    timer->setInterval(timer->intervalAsDuration()
-                                   .count() == INTERVALL
-                           ? SLOW_INTERVALL
-                           : INTERVALL);
+    switch (timer->intervalAsDuration().count())
+    {
+    case INTERVALL:
+        timer->setInterval(MEDIUM_INTERVALL);
+        break;
+    case MEDIUM_INTERVALL:
+        timer->setInterval(SLOW_INTERVALL);
+        break;
+    default:
+        timer->setInterval(INTERVALL);
+        break;
+    }
 }

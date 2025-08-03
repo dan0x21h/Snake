@@ -18,9 +18,10 @@ private slots:
 
 private:
   void handlePause();
-  void handleSpeed();
+  void toggleSpeed();
 
 private:
   std::unique_ptr<SnakeWidget> snakeWidget;
   std::shared_ptr<QTimer> timer;
+  long currentInterval;
 };

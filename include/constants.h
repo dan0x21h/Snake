@@ -5,7 +5,8 @@
 #include <qsize.h>
 
 static const long INTERVALL = 100;
-static const long SLOW_INTERVALL = 2 * INTERVALL;
+static const long MEDIUM_INTERVALL = 120;
+static const long SLOW_INTERVALL = 200;
 static const QSize WINDOW_SIZE = QSize(600, 400);
 static const int ESIZE = 20;
 
